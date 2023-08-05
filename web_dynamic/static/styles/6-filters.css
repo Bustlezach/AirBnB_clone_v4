@@ -78,6 +78,7 @@ button:hover {
     margin: 0px;
 }
 
+
 .locations .popover {
     margin-top: 0%;
 }
@@ -96,7 +97,14 @@ button:hover {
     margin-bottom: 5%;
     margin-left: 0px;
 }
-
+.amenities h4 {
+    margin-top: 2%;
+    overflow-x: scroll;
+}
+.amenities .popover ul input[type=checkbox] {
+    margin-left: 10px;
+}
+  
 .amenities:hover .popover,
 .locations:hover .popover {
     visibility: visible;

@@ -2,7 +2,7 @@
 venv/
 
 # exclude pycache
-*__pycache__/*
+*/__pycache__/*
 
 # exclude pyrightconfig.json 
 pyrightconfig.json
