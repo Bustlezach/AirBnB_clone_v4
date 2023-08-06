@@ -10,7 +10,7 @@ header .logo {
     height: 100%;
 }
 
-header #api_status {
+header .api_status {
     position: absolute;
     right: 30px;
     transform: translateY(-140%);
