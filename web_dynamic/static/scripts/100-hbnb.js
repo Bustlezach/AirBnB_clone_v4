@@ -14,7 +14,7 @@ $(document).ready(function () {
     const sectionPlaces = $('section.places');
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:5001/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
       method: 'POST',
       contentType: 'application/json',
       dataType: 'json',
@@ -44,7 +44,7 @@ $(document).ready(function () {
     });
   };
 
-  $.get('http://localhost:5001/api/v1/status', function (res) {
+  $.get('http://0.0.0.0:5001/api/v1/status', function (res) {
     if (res.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
