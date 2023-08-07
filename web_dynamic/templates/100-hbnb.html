@@ -46,13 +46,25 @@
             <ul id="states">
               {% for state in states| sort(attribute='name') %}
               <li>
-                  <input type="checkbox" data-id="{{ state.id }}" data-name="{{ state.name }}" />
-                <h2>{{ state[0].name }}:</h2>
+                <h2>
+                  <input
+                    type="checkbox"
+                    data-id="{{ state[0].id }}"
+                    data-name="{{ state[0].name }}"
+                    class="state"
+                  />
+                  {{ state[0].name }}:
+                </h2>
                 <ul id="cities">
                   {% for city in state[1] %}
                   <li>
-                      <input type="checkbox" data-id="{{ city.id }}" data-name="{{ city.name }}" />
-                      {{ city.name }}
+                    <input
+                      type="checkbox"
+                      data-id="{{ city.id }}"
+                      data-name="{{ city.name }}"
+                      class="city"
+                    />
+                    {{ city.name }}
                   </li>
                   {% endfor %}
                 </ul>
