@@ -99,3 +99,47 @@
 .user {
   margin-bottom: 1.5%;
 }
+ article .amenities {
+    margin-top: 40px;
+}
+
+article .amenities h2 {
+    font-size: 16px;
+    padding-bottom: 10px;
+    text-align: left;
+    border-bottom: 1px solid #DDDDDD;
+}
+.amenities div {
+    display: flex;
+}
+
+.amenities div img {
+    height: 30px;
+}
+.amenities div p {
+    margin-left: 10px;
+}
+article .amenities ul {
+    list-style: none;
+}
+
+.reviews {
+    margin-top: 40px;
+}
+.reviews h2 {
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+.reviews ul {
+    display: none;
+    list-style: none; 
+}
+
+.reviews ul h3 {
+  font-size: 12px;
+}
+
+.reviews ul p {
+    font-size: 12px;
+} 
