@@ -116,25 +116,28 @@ $(document).ready(function () {
   $(document).keypress((e) => {
     if (e.which === 13) { renderPlaces(filterObj); }
   });
-
+  const placeArray = [];
   $(document).on('click', '.show-reviews', function () {
     const placeId = $(this).attr('id');
-    $.get(`http://localhost:5001/api/v1/places/${placeId}/reviews`, (reviews, statusText) => {
-      if (statusText === 'success') {
-        for (const review of reviews) {
-          $.get(`http://localhost:5001/api/v1/users/${review.user_id}`, (user, statusText) => {
-            if (statusText === 'success') {
-              console.log(user);
-              $(`#review-${placeId}`).append(`
+    if (placeArray.indexOf(placeId) === -1) {
+      $.get(`http://localhost:5001/api/v1/places/${placeId}/reviews`, (reviews, statusText) => {
+        if (statusText === 'success') {
+          for (const review of reviews) {
+            $.get(`http://localhost:5001/api/v1/users/${review.user_id}`, (user, statusText) => {
+              if (statusText === 'success') {
+                $(`#review-${placeId}`).append(`
                   <li>
                   <h3>from ${user.first_name} ${user.last_name}</h3>
                   <p>${review.text}</p>
                   </li>
                   `);
-            }
-          });
+              }
+            });
+          }
+          placeArray.push(placeId);
         }
-      }
-    });
+      });
+    }
+    if ($(`#review-${placeId}`).css('display') === 'none') { $(`#review-${placeId}`).css('display', 'block'); } else { $(`#review-${placeId}`).css('display', 'none'); }
   });
 });
