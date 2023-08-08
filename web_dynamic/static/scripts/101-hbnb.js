@@ -14,7 +14,7 @@ $(document).ready(function () {
     const sectionPlaces = $('section.places');
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:5001/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
       method: 'POST',
       contentType: 'application/json',
       dataType: 'json',
@@ -74,7 +74,7 @@ $(document).ready(function () {
     });
   };
 
-  $.get('http://localhost:5001/api/v1/status', function (res) {
+  $.get('http://0.0.0.0:5001/api/v1/status', function (res) {
     if (res.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
@@ -120,10 +120,10 @@ $(document).ready(function () {
   $(document).on('click', '.show-reviews', function () {
     const placeId = $(this).attr('id');
     if (placeArray.indexOf(placeId) === -1) {
-      $.get(`http://localhost:5001/api/v1/places/${placeId}/reviews`, (reviews, statusText) => {
+      $.get(`http://0.0.0.0:5001/api/v1/places/${placeId}/reviews`, (reviews, statusText) => {
         if (statusText === 'success') {
           for (const review of reviews) {
-            $.get(`http://localhost:5001/api/v1/users/${review.user_id}`, (user, statusText) => {
+            $.get(`http://0.0.0.0:5001/api/v1/users/${review.user_id}`, (user, statusText) => {
               if (statusText === 'success') {
                 $(`#review-${placeId}`).append(`
                   <li>
