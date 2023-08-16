@@ -1,6 +1,5 @@
 $(document).ready(function () {
-  $.get('http://0.0.0.0:5001/api/v1/status/', function (res) {
-    console.log(res);
+  $.get('http://localhost/api/v1/status/', function (res) {
     if (res.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
