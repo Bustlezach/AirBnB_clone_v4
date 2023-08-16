@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $.get('http://localhost/api/v1/status/', function (res) {
+  $.get('http://web-01.somzzy.tech/api/v1/status/', function (res) {
     if (res.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
